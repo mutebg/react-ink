@@ -164,6 +164,11 @@ let Ink = React.createClass({
         let { clientX, clientY } = changedTouches[i]
         this.pushBlot(timeStamp, clientX, clientY)
       }
+
+      setTimeout( () => {
+        this._onRelease();
+      }, this.props.duration)
+
     } else if (button === MOUSE_LEFT && !ctrlKey) {
       this.pushBlot(timeStamp, clientX, clientY)
     }
